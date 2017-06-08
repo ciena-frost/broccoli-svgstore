@@ -1,7 +1,7 @@
 # broccoli-svgstore
 
 [![Latest NPM release][npm-badge]][npm-badge-url]
-[![TravisCI Build Status][travis-badge]][travis-badge-url]
+[![CircleCI Build Status][circle-badge]][circle-badge-url]
 [![License][license-badge]][license-badge-url]
 [![Dependencies][dependencies-badge]][dependencies-badge-url]
 [![Dev Dependencies][devDependencies-badge]][devDependencies-badge-url]
@@ -55,19 +55,19 @@ Within your markup, you should now be able to "use" each symbol inside of other 
   path -- [to which output will be written](https://github.com/broccolijs/broccoli-plugin#pluginprototypebuild)
   (starting from the root directory of your build destination).
 
-  Required: `true`  
+  Required: `true`
   Default: `null`
 
 - `annotation` {string}: a [Broccoli Plugin annotation](https://github.com/broccolijs/broccoli-plugin#new-plugininputnodes-options)
 
-  Required: `false`  
+  Required: `false`
   Default: `null`
 
 
 - `svgstoreOpts` {Object}: Options to be passed on to `svgstore` during the processing step.
   - See: `svgstore`'s options [documentation](https://github.com/svgstore/svgstore#options)
 
-  Required: `false`  
+  Required: `false`
   Default: `{}`
 
 - `fileSettings` {Object}: a hash of per-file settings.
@@ -78,21 +78,25 @@ will be found in this node. It's value should then be an Object with any of the 
 
   Example usage:
 
-  ```javascript
+  ```js
     var outputNode = svgstore(inputNodes, {
       outputFile: "/assets/icons.svg",
       fileSettings: {
-        twitter: { id: 'tweet' },
-        menu: { id: 'hamburger', svgstoreOpts: { customSymbolAttrs: ['preserveAspectRatio'] } }
-      }
+        twitter: { id: 'icon-twitter' },
+        menu: {
+          id: 'icon-hamburger-menu',
+          svgstoreOpts: {
+            symbolAttrs: { preserveAspectRatio: 'xMinYMid' }
+          }
+        }
     });
   ```
 
 
 [npm-badge]: https://img.shields.io/npm/v/broccoli-svgstore.svg
 [npm-badge-url]: https://www.npmjs.com/package/broccoli-svgstore
-[travis-badge]: https://img.shields.io/travis/svgstore/broccoli-svgstore/master.svg?label=TravisCI
-[travis-badge-url]: https://travis-ci.org/svgstore/broccoli-svgstore
+[circle-badge]: https://circleci.com/gh/svgstore/broccoli-svgstore/tree/master.svg?style=svg&circle-token={{CIRCLE_TOKEN}}
+[circle-badge-url]: https://circleci.com/gh/svgstore/broccoli-svgstore/tree/master
 [license-badge]: https://img.shields.io/npm/l/broccoli-svgstore.svg
 [license-badge-url]: LICENSE.md
 [dependencies-badge]: https://david-dm.org/svgstore/broccoli-svgstore/status.svg
