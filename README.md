@@ -1,3 +1,6 @@
+# DEPRECATED
+## As of v4.0.0 [svgstore/broccoli-svgstore](https://github.com/svgstore/broccoli-svgstore) includes the changes made in this fork.
+
 # broccoli-svgstore
 
 [![Latest NPM release][npm-badge]][npm-badge-url]
